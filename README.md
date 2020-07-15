@@ -1,1 +1,1 @@
-## Aquila Theme##
+## Aquila Theme
