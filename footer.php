@@ -1,6 +1,10 @@
-<footer>
-        <p>Footer</p>
-    </footer>
-    <?php wp_footer();?>
+</div>
+<footer id="mastfooter" class="site-footer">
+
+</footer>
+
+</div>
+<?php wp_footer(); ?>
 </body>
+
 </html>
