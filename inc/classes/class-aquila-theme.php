@@ -17,6 +17,7 @@ class AQUILA_THEME {
 		// Load class.
 		$this->setup_hooks();
 		Assets::get_instance();
+		Menus::get_instance();
 	}
 
 	protected function setup_hooks() {
@@ -25,30 +26,86 @@ class AQUILA_THEME {
 	}
 
 	public function theme_setup() {
-        add_theme_support( 'title-tag' );
-        add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-        add_theme_support( 'customize-selective-refresh-widgets' );
-        $bg_defaults = [
-            'default-image'          => '',
-            'default-preset'         => 'default',
-            'default-size'           => 'cover',
-            'default-repeat'         => 'no-repeat',
-            'default-attachment'     => 'scroll',
-        ];
-        add_theme_support( 'custom-background', $bg_defaults );
 
+        /**
+         * Load theme text-domain
+         */
+
+        /**,
+         * Suppert Title Tag
+         */
+        add_theme_support( 'title-tag' );
+
+        /**
+         * Support Logo
+         */
         add_theme_support( 'custom-logo', [
             'height'      => 60,
             'width'       => 400,
             'flex-height' => true,
             'flex-width'  => true,
             'header-text' => [ 'site-title', 'site-description' ]
-         ]);
-        $post_formats = array('aside','image','gallery','video','audio','link','quote','status');
-        add_theme_support( 'post-formats', $post_formats);
+        ]);
 
+        /**
+         * Body Custom Background
+         */
+        add_theme_support( 'custom-background', [
+            'default-color'          => '',
+            'default-image'          => '',
+            'default-repeat'         => 'no-repeat',
+            'default-position-x'     => 'center',
+            'default-position-y'     => 'center',
+            'default-size'           => 'cover',
+            'default-attachment'     => 'scroll',
+        ] );
+
+        /**
+         * Support Feature Image
+         */
+        add_theme_support( 'post-thumbnails' );
+
+        /**
+         * Support pertially image refrshment
+         */
+        add_theme_support( 'customize-selective-refresh-widgets' );
+
+        /**
+         * automitically feed links
+         */
         add_theme_support( 'automatic-feed-links' );
+
+        /**
+         * support html 5
+         */
+        add_theme_support( 'html5',
+            ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ]
+        );
+
+        /**
+         * add style for tinymce editor
+         * default is calles editor-style.css
+         */
+        add_editor_style();
+
+        /**
+         * Gutenburg ar block ar style support kore jonno
+         */
+        add_theme_support('wp-block-style');
+
+        /**
+         * Genreally wordpress utenburg do not have full width and max-whdth
+         * if we want then we have to add this theme support
+         */
+        add_theme_support('align-wide');
+
+        /**
+         * Content Width
+         */
+        global $contend_width;
+        if (!isset($contend_width)) {
+            $contend_width = 1240;
+        }
 
     }
 }
