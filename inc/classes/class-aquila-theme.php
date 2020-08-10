@@ -21,6 +21,7 @@ class AQUILA_THEME
         $this->setup_hooks();
         Assets::get_instance();
         Menus::get_instance();
+        Sidebar::get_instance();
     }
 
     protected function setup_hooks()

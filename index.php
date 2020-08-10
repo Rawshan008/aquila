@@ -18,30 +18,38 @@ get_header();
             ?>
             <div class="row">
                 <?php
-                    $index = 0;
-                    $no_of_columns = 3;
+//                    $index = 0;
+//                    $no_of_columns = 3;
                     while(have_posts()) : the_post();
                 ?>
 
                     <?php
-                       if ( 0 === $index % $no_of_columns) {
+//                       if ( 0 === $index % $no_of_columns) {
                            ?>
-                                <div class="col-lg-4 col-md-2 col-sm-12">
-                           <?php
-                       }
-                    ?>
-                <?php get_template_part('template-parts/content');?>
-                        <?php
-                        $index ++;
 
-                        if(0 !== $index && 0 === $index % $no_of_columns) {
+                           <?php
+//                       }
+                    ?>
+                        <div class="col-lg-4 col-md-2 col-sm-12">
+                <?php get_template_part('template-parts/content');?>
+                        </div>
+                        <?php
+//                        $index ++;
+//
+//                        if(0 !== $index && 0 === $index % $no_of_columns) {
                             ?>
-                            </div>
+
                             <?php
-                        }
+//                        }
 
                         ?>
                     <?php endwhile; ?>
+
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <?php aquila_pagination();?>
+                </div>
             </div>
         </div>
         <?php else:?>

@@ -21,3 +21,8 @@ img {
 .updated:not(.published) {
     display: none;
 }
+
+.page-numbers.current > span {
+    background-color: gray;
+    color: #fff;
+}
